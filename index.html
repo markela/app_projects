@@ -1,8 +1,35 @@
 <html>
+
+<head>
+<script language = "javascript">
+  function addtext() {
+    var newtext = document.myform.inputtext.value;
+    if (document.myform.placement[1].checked) {
+      document.myform.outputtext.value = "";
+    }
+    document.myform.outputtext.value += newtext;
+  } </script>
+</head>
+
 <body>
-    <label>First name: <input type="text" name="first_name" /></label><br />
-     <label>Last name: <input type="text" name="last_name" /></label><br />
-        <label>E-mail: <input type="email" name="user_email" /></label><br />
-<input type="submit" value="Submit" />
+<form name="myform">
+  <table border="0" cellspacing="0" cellpadding="5">
+    <tr>
+      <td>
+        <textarea name="inputtext"></textarea>
+      </td>
+      <td>
+        <input type="radio" name="placement" value="append" checked> Add to Existing Text
+        <br>
+        <input type="radio" name="placement" value="replace"> Replace Existing Text
+        <br>
+        <input type="button" value="Add New Text" onClick="addtext();">
+      </td>
+      <td>
+        <textarea name="outputtext"></textarea>
+      </td>
+    </tr>
+  </table>
+</form>
 </body>
 </html>
